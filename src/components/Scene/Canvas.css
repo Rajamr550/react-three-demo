@@ -1,0 +1,20 @@
+.canvas-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.canvas {
+  position: absolute;
+  inset: 0;
+  outline: none;
+  cursor: grab;
+  opacity: 0;
+  animation: fade-in 0.4s ease forwards;
+}
+
+.canvas:active {
+  cursor: grabbing;
+}
