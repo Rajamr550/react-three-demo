@@ -5,7 +5,7 @@ import iphone11 from 'assets/iphone-11.glb';
 import iphone12 from 'assets/iphone-12.glb';
 
 const Home = () => (
-  <Fragment>
+  <Fragment >
     {/* <Helmet>
       <title>Device Models</title>
       <meta

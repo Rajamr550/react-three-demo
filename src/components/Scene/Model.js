@@ -36,7 +36,7 @@ const Model = ({ model, selection, color = '#FFFFFF', modelRotation, ...rest }) 
 
   useEffect(() => {
     texture.encoding = sRGBEncoding;
-    texture.flipY = false;
+    texture.flipY = true;
     texture.anisotropy = gl.capabilities.getMaxAnisotropy();
 
     // Decode the texture to prevent jank on first render

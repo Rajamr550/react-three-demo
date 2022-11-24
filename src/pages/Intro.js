@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { sRGBEncoding, Color } from 'three';
 import { animated, useSpring } from '@react-spring/three';
 import { Transition } from 'react-transition-group';
-import { useThree, Canvas } from '@react-three/fiber';
+import { useThree, Canvas, useFrame } from '@react-three/fiber';
 import { useGLTF, useTexture, OrbitControls } from '@react-three/drei';
 //import Icon from 'components/Icon';
 // import Heading from 'components/Heading';
@@ -42,12 +42,14 @@ const IntroModel = ({ model, position, delay, ...rest }) => {
   // --webgl
 
   //react-three fibre
+  // useFrame((state, delta) => (ref.current.rotation.x += delta))
 
   useEffect(() => {
+
     scene.traverse(node => {
       if (node.name === 'Screen') {
         image.encoding = sRGBEncoding;
-        image.flipY = false;
+        image.flipY = true;
         image.anisotropy = gl.capabilities.getMaxAnisotropy();
 
         // Decode the texture to prevent jank on first render
@@ -71,7 +73,7 @@ const IntroScene = ({ isMobile }) => {
         frameloop="always"
         dpr={[1, 2]}
         camera={{ position: [0, 0, isMobile ? 9 : 10], fov: 36 }}
-        style={{ position: 'absolute' }}
+        style={{ position: 'sticky' }}
         gl={{
           antialias: true,
           powerPreference: 'high-performance',
@@ -80,12 +82,19 @@ const IntroScene = ({ isMobile }) => {
       >
         <Suspense fallback={null}>
           <IntroModel
-            delay={800}
-            model="iPhone 11"
+            delay={2000}
+            model="man"
             position={[-1.2, -0.4, 0.1]}
             rotation={[-0.4, 0.4, 0.2]}
           />
+
           <IntroModel
+            delay={1000}
+            model="building"
+            position={[-1.2, -0.4, 0.1]}
+            rotation={[-0.4, 0.4, 0.2]}
+          />
+          {/* <IntroModel
             delay={900}
             model="iPhone 12"
             position={[0.6, 0.4, 1.2]}
@@ -94,24 +103,26 @@ const IntroScene = ({ isMobile }) => {
 
           <IntroModel
             delay={500}
-            model="iMac 2021"
-            position={[-3, 0.4, 1.2]}
-            rotation={[0, -0.6, -0.2]}
+            model="oneplus 1"
+            position={[4, 0.4, 1.2]}
+            rotation={[0, -0.6, 0]}
           />
 
           <IntroModel
             delay={500}
             model="iPad Air"
-            position={[-4, 0.4, 1.2]}
+            position={[-3, -4, -3]}
             rotation={[0, -0.6, 1]}
-          />
+          /> */}
         </Suspense>
-        <ambientLight intensity={1} />
+
+
+        <ambientLight intensity={0.6} />
         <directionalLight intensity={1.1} position={[0.5, 0, 0.866]} />
         <directionalLight intensity={0.8} position={[-6, 2, 2]} />
         <OrbitControls
-          enablePan={false}
-          enableZoom={false}
+          enablePan={true}
+          enableZoom={true}
           minPolarAngle={Math.PI / 2.3}
           maxPolarAngle={Math.PI / 2.3}
         />

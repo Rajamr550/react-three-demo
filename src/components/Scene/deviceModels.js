@@ -41,12 +41,48 @@ import iPadAirFrontRight from 'assets/ipad-air-front-right.png';
 import iPadAirTiltedLeft from 'assets/ipad-air-tilted-left.png';
 import iPadAirTiltedRight from 'assets/ipad-air-tilted-right.png';
 
+import oneplus from 'assets/oneplus.glb';
+import oneplustTexture from 'assets/oneplus.jpg';
+
+import car from 'assets/car.glb';
+
+import man from 'assets/man.glb';
+
+import building from 'assets/building.glb';
+
+// import * as 'asserts';
+
+
 const models = {
+  'oneplus 1': {
+    name: 'one',
+    url: car,
+    texture: iphone11Texture,
+    width: 375,
+    height: 81,
+  },
+
+  'man': {
+    name: 'man',
+    url: man,
+    texture: iphone11Texture,
+    width: 1000,
+    height: 2000,
+  },
+
+  'building': {
+    name: 'building',
+    url: building,
+    texture: iphone11Texture,
+    width: 800,
+    height: 810,
+  },
+
   'iPhone 11': {
     name: 'iPhone 11',
     url: iphone11,
-    width: 3750,
-    height: 81200,
+    width: 375,
+    height: 812,
     texture: iphone11Texture,
     renders: [
       iphone11FrontLeft,

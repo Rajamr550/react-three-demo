@@ -84,7 +84,9 @@ const Controls = ({ cameraRotation, onUpdate, ...rest }) => {
 
     const cameraRotation = {
       x: Math.round(MathUtils.radToDeg(controls.polarAngle) % 360),
-      y: Math.round(MathUtils.radToDeg(controls.azimuthAngle) % 360),
+      // y: Math.round(MathUtils.radToDeg(controls.azimuthAngle) % 360),
+      y: Math.round(MathUtils.radToDeg(controls.polarAngle) % 360),
+
     };
 
     animating.current = true;
