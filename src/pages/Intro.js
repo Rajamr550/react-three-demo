@@ -88,32 +88,7 @@ const IntroScene = ({ isMobile }) => {
             rotation={[-0.4, 0.4, 0.2]}
           />
 
-          <IntroModel
-            delay={1000}
-            model="building"
-            position={[-1.2, -0.4, 0.1]}
-            rotation={[-0.4, 0.4, 0.2]}
-          />
-          {/* <IntroModel
-            delay={900}
-            model="iPhone 12"
-            position={[0.6, 0.4, 1.2]}
-            rotation={[0, -0.6, -0.2]}
-          />
 
-          <IntroModel
-            delay={500}
-            model="oneplus 1"
-            position={[4, 0.4, 1.2]}
-            rotation={[0, -0.6, 0]}
-          />
-
-          <IntroModel
-            delay={500}
-            model="iPad Air"
-            position={[-3, -4, -3]}
-            rotation={[0, -0.6, 1]}
-          /> */}
         </Suspense>
 
 
